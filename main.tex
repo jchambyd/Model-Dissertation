@@ -1,5 +1,108 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+% Exemplo de dissertação usando o modelo do Instituto de Informática da UFRGS
+%
+% Além de servir como exemplo, este documento tem como finalidade repeoduzir
+% o conteúdo e a forma do modelo oficial (em RTF) para uma dissertação de
+% mestrado do PPGC.
+
+\documentclass[ppgc,diss]{iiufrgs}
+
+% Pacotes relacionados a codificação de arquivos e de fontes.
+\ifxetex
+\else
+    \usepackage[utf8]{inputenc}
+\fi
+
+% Necessário para incluir figuras.
+\usepackage{graphicx}
+
+% Pacote para o uso de tabelas.
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+% Inicialização do hyperref com alguns parâmetros adicionais.
+% Use hyperref! Não estamos mais na idade da pedra!
+\makeatletter
+\hypersetup{%
+	hidelinks,
+	pdftitle={\@title},
+	pdfauthor={\@author},
+	pdfcreator={pdfLaTeX},
+	bookmarksdepth=4
+}
+\makeatother
+
+% Necessario apenas para este exemplo.
+\usepackage{framed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Dados gerais do documento.
+\title{
+    Normas para apresentação de teses do Instituto de Informática e do PPGC
+}
+
+% Esta divisão que coloca "Silva" como sobrenome ao invés de "da Silva" não faz
+% muito sentido, mas reflete o modelo da biblioteca.
+\author{Silva}{João da}
+\advisor[Prof.~Dr.]{Silva}{Orientador da}
+\coadvisor[Prof.~Dr.]{Silva}{Co-orientador da}
+\date{agosto}{2014}
+
 \begin{document}
-(Type your content here.)
+
+% Cria a folha de rosto.
+\maketitle
+
+% Dedicatoria
+\clearpage
+\begin{flushright}
+\mbox{}\vfill
+{\sffamily\itshape
+``If I have seen farther than others,\\
+it is because I stood on the shoulders of giants.''\\}
+--- \textsc{Sir~Isaac Newton}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Contents/acknowledgements.tex}
+
+\input{Contents/abstract.tex}
+
+\input{Contents/resumo.tex}
+
+% A ordem dos elementos pré-textuais importa.
+\listoffigures
+\listoftables
+\begin{listofabbrv}{UFRGS}
+    % Claro que uma solução mais automática, como o pacote glossaries, é
+    % melhor para esse fim, mas foge ao escopo deste exemplo.
+    \item[BB] Banco do Brasil
+    \item[CC] Código Civil
+    \item[BR] Brasil
+    \item[UFRGS] Universidade Federal do Rio Grande do Sul
+    \item[BD] Banco de Dados
+\end{listofabbrv}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Contents/introduction.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Contents/related.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Contents/conclusions.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Contents/references.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Contents/appendix.tex}
+
 \end{document}
